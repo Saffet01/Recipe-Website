@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <a href="#"><img src="logo.png" alt="Your Logo"></a>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Saved Recipes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section class="search-section">
+        <div class="search-background"></div>
+        <div class="search-content">
+            <h2>Looking for some ideas...</h2>
+            <input type="text" id="recipeSearch" placeholder="Search for recipes...">
+            <button id="searchButton">Search</button>
+            <p class="search-instruction">Search any recipe e.g.: burger, pizza, sandwich, toast.</p>
+        </div>
+    </section>
+
+    <section class="meal-type-section">
+        <div class="meal-type-tabs">
+            <button id="allTab" class="tab-button active" data-meal-type="all">All</button>
+            <button id="breakfastTab" class="tab-button" data-meal-type="breakfast">Breakfast</button>
+            <button id="lunchTab" class="tab-button" data-meal-type="lunch">Lunch</button>
+            <button id="dinnerTab" class="tab-button" data-meal-type="dinner">Dinner</button>
+        </div>
+    </section>
+
+    <section id="recipeResults">
+        
+    </section>
+
+
+    <footer>
+        &copy; October 2023 Saffet Ramazan Kaban; Recipe Website
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
