@@ -7,18 +7,18 @@ const APIUrl = (mealType) => `https://api.edamam.com/api/recipes/v2?type=public&
 
 
 function setActiveTab(tab) {
-    allTab.classList.remove('active');
+    // allTab.classList.remove('active');
     breakfastTab.classList.remove('active');
     lunchTab.classList.remove('active');
     dinnerTab.classList.remove('active');
     tab.classList.add('active');
 }
 
-allTab.addEventListener('click', function() {
-    setActiveTab(allTab);
+// allTab.addEventListener('click', function() {
+//     setActiveTab(allTab);
     
-    loadRecipesByMealType("breakfast");
-});
+//     loadRecipesByMealType("breakfast");
+// });
 
 breakfastTab.addEventListener('click', function() {
     setActiveTab(breakfastTab);
@@ -27,42 +27,42 @@ breakfastTab.addEventListener('click', function() {
 
 lunchTab.addEventListener('click', function() {
     setActiveTab(lunchTab);
-    loadRecipesByMealType("lunch");
+    loadRecipesByMealType("Lunch");
 });
 
 dinnerTab.addEventListener('click', function() {
     setActiveTab(dinnerTab);
-    loadRecipesByMealType("dinner");
+    loadRecipesByMealType("Snack");
 });
 
 
 function loadRecipesByMealType(mealType = ''){
 
-    fetch(APIUrl)
+    fetch(APIUrl(mealType))
         .then(response => response.json())
         .then(data => {
 
             const recipeResults = document.getElementById("recipeResults");
             recipeResults.innerHTML = "";
+            console.log(data.hits[0].recipe.label);// e.g.: Easy Mango-Blackberry Smoothie Recipe
 
-            data.recipes.forEach(recipe =>{
+            data.hits.forEach(recipe =>{
 
                 const recipeCard = document.createElement("div");
                 recipeCard.classList.add("recipe-card");
 
                 const recipeTitle = document.createElement("h3");
-                recipeTitle.textContent = recipe.label;
+                recipeTitle.textContent = recipe.recipe.label;
 
                 const recipeDescription = document.createElement("p");
-                recipeDescription.textContent = recipe.ingredientLines;
+                recipeDescription.textContent = recipe.recipe.ingredientLines;
 
                 const recipeImage = document.createElement("img");
-                recipeImage = recipe.image;
+                recipeImage.src = recipe.recipe.image;
 
                 recipeCard.appendChild(recipeImage);
                 recipeCard.appendChild(recipeTitle);
                 recipeCard.appendChild(recipeDescription);
-
                 recipeResults.appendChild(recipeCard);
 
             });
