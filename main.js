@@ -14,12 +14,6 @@ function setActiveTab(tab) {
     tab.classList.add('active');
 }
 
-// allTab.addEventListener('click', function() {
-//     setActiveTab(allTab);
-    
-//     loadRecipesByMealType("breakfast");
-// });
-
 breakfastTab.addEventListener('click', function() {
     setActiveTab(breakfastTab);
     loadRecipesByMealType("breakfast");
@@ -48,8 +42,9 @@ function loadRecipesByMealType(mealType = ''){
 
             data.hits.forEach(recipe =>{
 
-                const recipeCard = document.createElement("div");
+                const recipeCard = document.createElement("a");
                 recipeCard.classList.add("recipe-card");
+                recipeCard.href = `/recipe.html?label=${recipe.recipe.label}`;
 
                 const recipeTitle = document.createElement("h3");
                 recipeTitle.textContent = recipe.recipe.label;
@@ -71,4 +66,6 @@ function loadRecipesByMealType(mealType = ''){
         .catch(error => {
             console.error("Fetching Error!", error);
         });
-}
+};
+
+window.addEventListener("load", loadRecipesByMealType("breakfast"));

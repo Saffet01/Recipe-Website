@@ -109,6 +109,13 @@ section {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     height: 550px;
     overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+}
+
+.recipe-card:hover{
+    cursor: pointer;
+    color: #ff5733;
 }
 
 .recipe-card h3 {
