@@ -39,6 +39,8 @@ function loadRecipesByMealType(mealType = ''){
             const recipeResults = document.getElementById("recipeResults");
             recipeResults.innerHTML = "";
             console.log(data.hits[0].recipe.label);// e.g.: Easy Mango-Blackberry Smoothie Recipe
+            console.log(data.hits[0].recipe.id);
+            console.log(data.hits[1].recipe.id);
 
             data.hits.forEach(recipe =>{
 

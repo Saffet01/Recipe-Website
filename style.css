@@ -19,11 +19,19 @@ header {
 
 nav ul {
     list-style: none;
+    display: flex;
+    align-items: center;
 }
 
 nav ul li {
     display: inline;
     margin-right: 20px;
+}
+
+#saved-btn{
+    background-color: #ff5733;
+    padding: 15px;
+    border-radius: 8px;
 }
 
 main {
@@ -131,6 +139,7 @@ section {
 .recipe-card img {
     max-width: 100%;
     height: auto;
+    border-radius: 6px;
 }
 
 footer {
