@@ -46,7 +46,9 @@ function loadRecipesByMealType(mealType = ''){
 
                 const recipeCard = document.createElement("a");
                 recipeCard.classList.add("recipe-card");
-                recipeCard.href = `/recipe.html?label=${recipe.recipe.label}`;
+                //recipeCard.href = `/recipe.html?label=${encodeURIComponent(recipe.recipe.label)}&image=${encodeURIComponent(recipe.recipe.image)}&ingredients=${encodeURIComponent(recipe.recipe.ingredients.join(','))}`;
+                recipeCard.href = `/recipe.html?param=${recipe._links.self.href}`;
+                //recipe.href = recipe._links.self.href;
 
                 const recipeTitle = document.createElement("h3");
                 recipeTitle.textContent = recipe.recipe.label;
@@ -71,3 +73,4 @@ function loadRecipesByMealType(mealType = ''){
 };
 
 window.addEventListener("load", loadRecipesByMealType("breakfast"));
+

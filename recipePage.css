@@ -10,11 +10,16 @@
     align-items: center;
 }
 
-.recipe-detail{
+#recipe-detail{
     border: 1px solid #ae3131;
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
-    width: 75%;
+    width: 75%;;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+}
+
+#recipe-info{
+    padding: 20px;
 }
