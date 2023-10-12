@@ -46,7 +46,7 @@ function loadRecipesByMealType(mealType = ''){
 
                 const recipeCard = document.createElement("a");
                 recipeCard.classList.add("recipe-card");
-                recipeCard.href = `/recipe.html?label=${recipe.recipe.label}`;
+                recipeCard.href = `./recipe.html?url=${encodeURIComponent(recipe._links.self.href)}`;
 
                 const recipeTitle = document.createElement("h3");
                 recipeTitle.textContent = recipe.recipe.label;
