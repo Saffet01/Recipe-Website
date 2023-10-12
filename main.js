@@ -71,3 +71,4 @@ function loadRecipesByMealType(mealType = ''){
 };
 
 window.addEventListener("load", loadRecipesByMealType("breakfast"));
+

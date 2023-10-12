@@ -1,4 +1,7 @@
 const recipeDetail = document.getElementById("recipe-detail");
+const urlParams = new URLSearchParams(window.location.search);
+const recipeURL = urlParams.get("param");
+
 
 window. addEventListener('load', getUrlFromQueryParams);
 
@@ -21,5 +24,10 @@ async function fetchRecipeData(url) {
 
 
 
+
+
+const recipeImageElement = document.getElementById("recipeImage");
+const recipeTitleElement = document.getElementById("recipeLabel");
+const recipeIngredientsElement = document.getElementById("recipeIngredients");
 
 
