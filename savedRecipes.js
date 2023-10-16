@@ -1,43 +1,38 @@
-const savedRecipeURL = localStorage.getItem('savedRecipeURL');
-const recipeImageElement = document.getElementById("recipeImage");
-const recipeTitleElement = document.getElementById("recipeLabel");
-const recipeIngredientsElement = document.getElementById("recipeIngredients");
-const recipeIngredientList = document.getElementById("ingredientList")
-const calorieSection = document.getElementById("calorieSection");
-const saveButton = document.getElementById("save-btn");
-const recipeDetail = document.getElementById("recipe-detail");
+function getSavedRecipes(){
+    const savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
+    return savedRecipes;
+};
 
-console.log(savedRecipeURL);
 
-const savedRecipeURLs = object.keys(localStorage);
+function displaySavedRecipes(){
+    const savedRecipes = getSavedRecipes();
+    const recipeResults = document.getElementById("recipeResults");
 
-const recipeKeys = savedRecipeURLs.filter(key => key.startsWith("savedRecipeURL"));
+    if(savedRecipes.lenght === 0 ){
+        recipeResults.innerText = "<p>No saved recipes found.</p>"
+    }
+    else{
+        recipeResults.innerHTML = "";
 
-recipeKeys.forEach(key => {
-    const savedRecipeURL = localStorage.getItem(key);
-
-    if(savedRecipeURL){
-        fetch(savedRecipeURL)
-            .then(response => response.json())
-            .then(data => {
-
+        savedRecipes.forEach(savedRecipe => {
             const recipeCard = document.createElement("div");
             recipeCard.classList.add("recipe-card");
 
             const recipeTitle = document.createElement("h3");
-            recipeTitle.textContent = data.label;
-
-            const recipeDescription = document.createElement("p");
-            recipeDescription.textContent = data.ingredientLines.join(', ');
+            recipeTitle.textContent = savedRecipe.label;
 
             const recipeImage = document.createElement("img");
-            recipeImage.src = data.image;
+            recipeImage.src = savedRecipe.image;
 
-            recipeCard.appendChild(recipeImage);
+            const recipeCalorie = document.createElement("h5");
+            recipeCalorie.innerText = savedRecipe.calorie;
+
             recipeCard.appendChild(recipeTitle);
-            recipeCard.appendChild(recipeDescription);
+            recipeCard.appendChild(recipeImage);
+            recipeCard.appendChild(recipeCalorie);
             recipeResults.appendChild(recipeCard);
-            });
+        });
     }
-});
+}
 
+window.addEventListener("load", displaySavedRecipes);

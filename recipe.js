@@ -1,11 +1,9 @@
 const recipeDetail = document.getElementById("recipe-detail");
 const urlParams = new URLSearchParams(window.location.search);
 const recipeURL = urlParams.get("param");
-
 const recipeImageElement = document.getElementById("recipeImage");
 const recipeTitleElement = document.getElementById("recipeLabel");
 const recipeIngredientsElement = document.getElementById("recipeIngredients");
-const recipeIngredientList = document.getElementById("ingredientList")
 const calorieSection = document.getElementById("calorieSection");
 const saveButton = document.getElementById("save-btn");
 
@@ -17,8 +15,9 @@ function getUrlFromQueryParams () {
     const pageUrl = new URL(pageUrlString);
     const recipeUrlDecoded = decodeURIComponent(pageUrl.searchParams.get('url'));
     fetchRecipeData(recipeUrlDecoded);
-    localStorage.setItem('savedRecipeURL', recipeUrlDecoded);
+    //localStorage.setItem('savedRecipeURL', recipeUrlDecoded);
     console.log(recipeUrlDecoded);
+    return recipeUrlDecoded;
   } else {
     console.log('No url found!')
   }
@@ -36,5 +35,25 @@ async function fetchRecipeData(url) {
 }
 
 
+function saveThisRecipeDetails(){
+  const savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
+  const currentRecipe = {
+    label: recipeTitleElement.textContent,
+    image: recipeImageElement.src,
+    ingredients: recipeIngredientsElement.innerHTML,
+    calorie: calorieSection.innerText
+  };
+
+  const isAlreadySavedFlag = savedRecipes.some(savedRecipe => savedRecipe.label === currentRecipe.label);
+
+  if(!isAlreadySavedFlag) {
+    savedRecipes.push(currentRecipe);
+    localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+  }
+
+  console.log(localStorage.getItem("savedRecipes"));
+};
+
+saveButton.addEventListener("click", saveThisRecipeDetails);
 
 
