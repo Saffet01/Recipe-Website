@@ -23,13 +23,13 @@ Viewing Recipe Details:
   Click on a recipe card to view detailed information about the recipe.
   Use the "Save Recipe!" button to save recipes for future reference.
 
-##Features
+## Features
   Browse and search for recipes based on meal types.
   View detailed information about a selected recipe.
   Save recipes for future reference.
   Simple and user-friendly interface.
 
-##Project Structure
+## Project Structure
   - index.html: The main page where you can browse and search for recipes.
   - recipe.html: The recipe details page, which displays information about a selected recipe.
   - savedRecipes.html: The page for viewing saved recipes.
