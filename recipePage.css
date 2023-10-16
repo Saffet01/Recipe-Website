@@ -1,5 +1,10 @@
+#content{
+    display: flex;
+    justify-content: center;
+}
+
 .recipe-layout{
-    width: 100%;
+    width: 70%;
     position: absolute;
     top: 100px;
     bottom: 0;
@@ -18,8 +23,42 @@
     width: 75%;;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     display: flex;
+    min-width: 674px;
+}
+
+#recipeImage{
+    border: 1px solid #ae3131;
+    border-radius: 6px;
+    margin-right: 16px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 #recipe-info{
     padding: 20px;
+    position: relative;
 }
+
+#recipeIngredients{
+    padding: 20px;
+    line-height: 2;
+}
+
+#calorieSection{
+    padding: 10px;
+    border-radius: 8px;
+    width: 120px;
+}
+
+#save-btn{
+    position: absolute;
+    bottom: 20px;
+    right: 60px;
+    padding: 12px;
+    border: 1px solid #ae3131;
+    border-radius: 8px;
+}
+
+#save-btn:hover{
+    cursor: pointer;
+}
+
