@@ -2,17 +2,6 @@
 
 The Recipe Website is a simple web application that allows users to browse and save recipes based on meal types (e.g., Breakfast, Lunch, Dinner). Users can view detailed information about a recipe on a separate page and save recipes they like for future reference.
 
-## Table of Contents
-
-- [Getting Started](#getting-started)
-- [Features](#features)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Getting Started
-
 Follow the steps below to get started with the Recipe Website:
 
 1. Clone the repository to your local machine:
